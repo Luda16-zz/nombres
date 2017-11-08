@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="col-md-12">
+    <h1>Name List</h1>
+      <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let name of names">
+        <td>{{ name.id }}</td>
+        <td>{{ name.name }}</td>
+        <td>{{ name.description }}</td>
+        <td>{{ name.price | currency:'USD':true:'1.0-2' }}</td>
+        <td>
+          <button class="btn btn-info"
+                        (click)="showEditNameForm(name)">
+                       <i class="fa fa-edit"></i>
+              </button>
+          <button class="btn btn-danger"
+                       (click)="removeName(name)">
+                       <i class="fa fa-minus"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-success"
+               (click)="showAddNameForm()"><i class="fa fa-plus"></i></button>
+  <br />
+  <br />
+
+  <form *ngIf="nameForm">
+    <h2>Add New Name</h2>
+    <p>ID: <input type="text"
+                           name="id"
+                           [(ngModel)]="newName.id" /></p>
+    <p>Name: <input type="text"
+                                 name="name"
+                                 [(ngModel)]="newName.name" /></p>
+    <p>Description: <input type="text"
+                                          name="description"
+                                          [(ngModel)]="newName.description" /></p>
+    <p>Price: <input type="text"
+                                name="price"
+                                [(ngModel)]="newName.price" /></p>
+    <p>
+      <button type="button"
+                   class="btn btn-primary"
+                   (click)="saveName(newName)">Submit</button>
+      <button type="button"
+                   class="btn btn-warning"
+                   (click)="cancelNewName()">Cancel</button>
+    </p>
+   </form>
+
+    <form *ngIf="editNameForm">
+    <h2>Edit Name Details</h2>
+    <p>ID: <input type="text"
+                           name="id"
+                           [(ngModel)]="editedName.id" /></p>
+    <p>Nombre: <input type="text"
+                                 name="name"
+                                 [(ngModel)]="editedName.name" /></p>
+    <p>Apellido: <input type="text"
+                                          name="description"
+                                          [(ngModel)]="editedName.description" /></p>
+    <p>Edad: <input type="text"
+                                name="price"
+                                [(ngModel)]="editedName.price" /></p>
+    <p>
+      <button type="button"
+                   class="btn btn-primary"
+                   (click)="updateName(editedName)">Agregar</button>
+      <button type="button"
+                   class="btn btn-warning"
+                   (click)="cancelEdits()">Cancelar</button>
+    </p>
+   </form>
+  </div>
+</div>
