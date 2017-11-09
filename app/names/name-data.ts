@@ -2,17 +2,17 @@ import { Name } from './name';
 
 export const NAME_ITEMS: Name[] = [{
     id: 1,
-    name: 'Scissors',
-    description: 'use this to cut stuff',
-    price: 4.99
+    name: 'Luis Casanova',
+    description: 'Web developer',
+    price: 26
   }, {
     id: 2,
-    name: 'Steak Knives',
-    description: 'use this to eat food with',
-    price: 10.99
+    name: 'Daniel García',
+    description: 'UI/UX Designer',
+    price: 20
   }, {
     id: 3,
-    name: 'Shot Glass',
-    description: 'use this to take shots',
-    price: 5.99
+    name: 'Luis García',
+    description: 'Inbound Marketer',
+    price: 23
   }]
